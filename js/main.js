@@ -2,19 +2,19 @@ const productos = [
     {
         id: 1,
         nombre: "Tenders de pollo",
-        precio: 1590,
+        precio: 15900,
         url: "./img/tenderpollo.jpeg"
     },
     {
         id: 2,
         nombre: "Hamburguesa Simple",
-        precio: 2000,
+        precio: 6000,
         url: "./img/hamburguesasimple.jpeg"
     },
     {
         id: 3,
         nombre: "Papas Fritas",
-        precio: 2000,
+        precio: 3500,
         url: "./img/fritas.jpeg"
     },
     {
@@ -26,9 +26,17 @@ const productos = [
     {
         id: 5,
         nombre: "Hamburguesa doble",
-        precio: 2000,
+        precio: 8000,
         url: "./img/doble.jpeg"
-    }
+    },
+    {
+        id: 6,
+        nombre: "Aros de cebolla",
+        precio: 5000,
+        url: "./img/cebolla.jpeg"
+    },
+
+
 ];
 
 let productsContainer = document.getElementById("products-container");

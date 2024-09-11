@@ -1,72 +1,61 @@
-/* Contenedor de los productos */
+/* Estilo para el encabezado */
+h2 {
+    text-align: center; /* Centrar el texto */
+    margin: 20px 0; /* Espacio arriba y abajo del encabezado */
+    font-size: 2.5rem; /* Tamaño de fuente para el encabezado */
+    color: #333; /* Color del texto del encabezado */
+}
+
+/* Separación entre la navbar y los productos */
 #products-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
+    margin-top: 30px; /* Espacio arriba del contenedor de productos */
+}
+
+/* Contenedor de productos con cuadrícula */
+#products-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas de igual tamaño */
+    gap: 20px; /* Espacio entre tarjetas */
     padding: 20px;
+    box-sizing: border-box; /* Incluye el padding y border en el tamaño total del contenedor */
 }
 
-/* Estilo de cada card */
-#products-container div {
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    width: 220px; /* Ancho fijo para todas las cards */
-    padding: 10px;
-    text-align: center;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 350px; /* Altura fija para todas las cards */
-}
-
-/* Imagen dentro de la card */
-#products-container img {
-    width: 100%;
-    height: 150px; /* Tamaño fijo para todas las imágenes */
-    object-fit: cover; /* Mantiene la proporción de la imagen */
+/* Estilo para las tarjetas de producto */
+.product-card {
+    border: 1px solid #ddd;
     border-radius: 8px;
-    margin-top: 10px; /* Espacio entre el nombre y la imagen */
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    background-color: #fff;
+    box-sizing: border-box; /* Asegura que el padding y border no afecten el tamaño total */
 }
 
-/* Estilo del nombre del producto */
-#products-container h3 {
-    font-size: 18px;
-    min-height: 50px; /* Altura mínima para el título */
+/* Estilo para las imágenes dentro de las tarjetas */
+.product-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+/* Estilo para los títulos y precios */
+.product-card h3, .product-card h4 {
     margin: 10px 0;
-    overflow: hidden; /* Para prevenir que el texto desborde */
-    text-overflow: ellipsis; /* Puntos suspensivos si el texto es muy largo */
 }
 
-/* Estilo del precio */
-#products-container h4 {
-    font-size: 16px;
-    margin: 10px 0;
-    font-weight: bold;
-}
-
-/* Botón de agregar al carrito */
-.productoAgregar {
-    background-color: #28a745;
-    color: white;
+/* Estilo para los botones dentro de las tarjetas */
+.product-card button {
+    background-color: #007bff;
+    color: #fff;
     border: none;
     padding: 10px;
-    border-radius: 5px;
+    border-radius: 4px;
     cursor: pointer;
-    margin-top: 10px;
-    width: 100%;
 }
 
-/* Hover effect en el botón */
-.productoAgregar:hover {
-    background-color: #218838;
-}
-
-/* Hover effect en las cards */
-#products-container div:hover {
-    transform: scale(1.05);
+.product-card button:hover {
+    background-color: #0056b3;
 }
 /* Estilos básicos para la navbar */
 nav {
@@ -227,4 +216,40 @@ nav h1 {
     font-weight: bold;
     text-align: center;
     margin-top: 1em;
+}
+/* Estilo para el footer */
+.footer {
+    background-color: #007bff; /* Color de fondo del footer */
+    color: #fff; /* Color del texto */
+    padding: 10px 20px; /* Espaciado interno */
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box; /* Incluye el padding y border en el tamaño total del footer */
+}
+
+/* Contenido del footer */
+.footer-content {
+    display: flex;
+    justify-content: space-between; /* Espacia los elementos a los extremos */
+    align-items: center; /* Centra verticalmente los elementos */
+}
+
+/* Estilo para el texto a la izquierda */
+.footer-left {
+    text-align: left; /* Alineación a la izquierda */
+    flex: 1; /* Permite que el texto a la izquierda ocupe el espacio disponible */
+}
+
+/* Estilo para el texto en el centro */
+.footer-center {
+    text-align: center; /* Alineación al centro */
+    flex: 1; /* Permite que el texto al centro ocupe el espacio disponible */
+}
+
+/* Estilo para el texto a la derecha */
+.footer-right {
+    text-align: right; /* Alineación a la derecha */
+    flex: 1; /* Permite que el texto a la derecha ocupe el espacio disponible */
 }
