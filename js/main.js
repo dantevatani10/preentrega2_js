@@ -43,11 +43,11 @@ let productsContainer = document.getElementById("products-container");
 
 // Renderizar productos en la página
 function renderProductos(productsArray) {
-    productsContainer.innerHTML = "";  // Limpiar el contenedor antes de renderizar
+    productsContainer.innerHTML = "";
 
     productsArray.forEach(producto => {
         const card = document.createElement("div");
-        card.classList.add("product-card"); // Añadir clase para estilizar
+        card.classList.add("product-card"); 
         card.innerHTML = `
             <h3>${producto.nombre}</h3>
             <img src="${producto.url}" alt="${producto.nombre}">
@@ -57,13 +57,13 @@ function renderProductos(productsArray) {
         productsContainer.appendChild(card);
     });
 
-    addToCartButton();  // Llamar a la función que agrega los botones
+    addToCartButton();  
 }
 
-// Llamada inicial para renderizar los productos
+// renderizar los productos
 renderProductos(productos);
 
-// Función para agregar productos al carrito utilizando la función desde carrito.js
+// Función para agregar productos al carrito 
 function addToCartButton() {
     const addButton = document.querySelectorAll(".productoAgregar");
 
@@ -72,7 +72,7 @@ function addToCartButton() {
             const productId = e.currentTarget.id;
             const selectedProduct = productos.find(producto => producto.id == productId);
 
-            // Llamar a la función definida en carrito.js para agregar el producto
+            
             if (typeof addToCart === "function") {
                 addToCart(selectedProduct);
             } else {

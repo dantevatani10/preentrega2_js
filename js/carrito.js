@@ -20,9 +20,8 @@ cartButton.onclick = () => {
 
 // Función para actualizar la vista del carrito en la navbar
 function updateCartView() {
-    cartItemsBody.innerHTML = ""; // Limpiar la vista anterior
-    cartTotal = 0; // Resetear el total
-
+    cartItemsBody.innerHTML = "";
+    cartTotal = 0;
     if (cartProducts.length > 0) {
         // Agrupamos los productos por ID y contamos las unidades
         const productCount = cartProducts.reduce((acc, product) => {
@@ -45,9 +44,9 @@ function updateCartView() {
             cartItemsBody.appendChild(cartItemRow);
             cartTotal += product.precio * quantity;
         }
-        cartEmptyMessage.style.display = "none"; // Ocultar mensaje de carrito vacío
+        cartEmptyMessage.style.display = "none"; 
     } else {
-        cartEmptyMessage.style.display = "block"; // Mostrar mensaje si el carrito está vacío
+        cartEmptyMessage.style.display = "block"; 
     }
 
     cartTotalElement.innerText = `Total: $${cartTotal}`;
@@ -112,7 +111,7 @@ document.addEventListener("DOMContentLoaded", function() {
     confirmOrderButton.addEventListener("click", confirmOrder);
 });
 
-// Escucha cambios en localStorage y actualiza tanto la navbar como la sección del carrito
+
 window.addEventListener('storage', function () {
     cartProducts = JSON.parse(localStorage.getItem("cartProducts")) || [];
     updateCartView();
