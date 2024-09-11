@@ -1,6 +1,230 @@
-/* PORTADA */
-#front {
-    z-index: 4;
-    background-image: url(../img/instalaciones-burger.jpg);
-    background-size:cover;
+/* Contenedor de los productos */
+#products-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Estilo de cada card */
+#products-container div {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 220px; /* Ancho fijo para todas las cards */
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 350px; /* Altura fija para todas las cards */
+}
+
+/* Imagen dentro de la card */
+#products-container img {
+    width: 100%;
+    height: 150px; /* Tamaño fijo para todas las imágenes */
+    object-fit: cover; /* Mantiene la proporción de la imagen */
+    border-radius: 8px;
+    margin-top: 10px; /* Espacio entre el nombre y la imagen */
+}
+
+/* Estilo del nombre del producto */
+#products-container h3 {
+    font-size: 18px;
+    min-height: 50px; /* Altura mínima para el título */
+    margin: 10px 0;
+    overflow: hidden; /* Para prevenir que el texto desborde */
+    text-overflow: ellipsis; /* Puntos suspensivos si el texto es muy largo */
+}
+
+/* Estilo del precio */
+#products-container h4 {
+    font-size: 16px;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+/* Botón de agregar al carrito */
+.productoAgregar {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100%;
+}
+
+/* Hover effect en el botón */
+.productoAgregar:hover {
+    background-color: #218838;
+}
+
+/* Hover effect en las cards */
+#products-container div:hover {
+    transform: scale(1.05);
+}
+/* Estilos básicos para la navbar */
+nav {
+    background-color: #333;
+    color: white;
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+nav h1 {
+    font-size: 1.5em;
+}
+
+#cart-button {
+    background-color: #ff9800;
+    border: none;
+    padding: 0.5em 1em;
+    color: white;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+#cart-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    color: black;
+    border: 1px solid #ccc;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    display: none; /* Ocultamos inicialmente */
+    z-index: 1000;
+    padding: 1em;
+}
+
+#cart-dropdown.active {
+    display: block; /* Mostrar cuando esté activo */
+}
+
+#cart-items {
+    max-height: 200px;
+    overflow-y: auto;
+    margin-bottom: 1em;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5em 0;
+    border-bottom: 1px solid #ccc;
+}
+
+#cart-empty {
+    font-style: italic;
+    color: #888;
+}
+
+#cart-total {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+/* Estilos básicos para el carrito */
+#cart-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #ccc;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Asegurar que el carrito ocupe todo el ancho disponible */
+    max-width: 600px; /* Ancho máximo del carrito */
+    max-height: 500px; /* Altura máxima del carrito */
+    overflow-y: auto; /* Permitir scroll vertical si es necesario */
+    display: none; /* Ocultar inicialmente */
+    z-index: 1000;
+    padding: 1em;
+    box-sizing: border-box;
+}
+
+#cart-dropdown.active {
+    display: block; /* Mostrar cuando esté activo */
+}
+
+#cart-items {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#cart-items thead {
+    background-color: #f4f4f4;
+}
+
+#cart-items th, #cart-items td {
+    border: 1px solid #ddd;
+    padding: 0.8em;
+    text-align: center;
+}
+
+#cart-items th {
+    background-color: #f4f4f4;
+}
+
+#cart-items td {
+    vertical-align: middle;
+}
+
+#cart-items .item-actions button {
+    background-color: #ff5722;
+    border: none;
+    color: white;
+    padding: 0.3em 0.6em;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 0.8em;
+}
+
+#cart-items .item-actions button:hover {
+    background-color: #e64a19;
+}
+
+#cart-empty {
+    font-style: italic;
+    color: #888;
+    text-align: center;
+    margin-top: 1em;
+}
+
+#cart-total {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-top: 1em;
+    text-align: right;
+}
+
+#confirm-order {
+    background-color: #4caf50;
+    border: none;
+    color: white;
+    padding: 0.7em 1em;
+    cursor: pointer;
+    font-size: 1em;
+    border-radius: 3px;
+    display: block;
+    margin: 1em auto;
+}
+
+#confirm-order:hover {
+    background-color: #388e3c;
+}
+
+#confirmation-message {
+    color: #4caf50;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 1em;
 }

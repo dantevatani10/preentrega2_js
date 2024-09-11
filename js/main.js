@@ -1,55 +1,75 @@
-const productos=[
+const productos = [
     {
-        id:1,
-        tipo:"Entradas",
+        id: 1,
         nombre: "Tenders de pollo",
         precio: 1590,
         url: "./img/tenderpollo.jpeg"
     },
     {
-        id:2,
-        tipo:"Hamburguesas",
+        id: 2,
         nombre: "Hamburguesa Simple",
         precio: 2000,
         url: "./img/hamburguesasimple.jpeg"
     },
     {
-        id:3,
-        tipo:"Acompañamientos",
+        id: 3,
         nombre: "Papas Fritas",
         precio: 2000,
         url: "./img/fritas.jpeg"
     },
-]
+    {
+        id: 4,
+        nombre: "Coca Cola",
+        precio: 2000,
+        url: "./img/cocacola.jpeg"
+    },
+    {
+        id: 5,
+        nombre: "Hamburguesa doble",
+        precio: 2000,
+        url: "./img/doble.jpeg"
+    }
+];
 
-let cartProducts = []
+let productsContainer = document.getElementById("products-container");
 
-let productsContainer = document.getElementById("products-container")
-
+// Renderizar productos en la página
 function renderProductos(productsArray) {
+    productsContainer.innerHTML = "";  // Limpiar el contenedor antes de renderizar
+
     productsArray.forEach(producto => {
-        const card = document.createElement("div")
-        card.innerHTML = `<h3>${producto.nombre}</img>
-                          <img src=${producto.url} alt="">
-                          <h4>${producto.precio}</h4>
-                          <button class="productoAgregar" id="${producto.id}">Agregar</button>`
-        productsContainer.appendChild(card)
-    } )
-    addToCartButton()
+        const card = document.createElement("div");
+        card.classList.add("product-card"); // Añadir clase para estilizar
+        card.innerHTML = `
+            <h3>${producto.nombre}</h3>
+            <img src="${producto.url}" alt="${producto.nombre}">
+            <h4>$${producto.precio}</h4>
+            <button class="productoAgregar" id="${producto.id}">Agregar</button>
+        `;
+        productsContainer.appendChild(card);
+    });
+
+    addToCartButton();  // Llamar a la función que agrega los botones
 }
-renderProductos(productos)
 
+// Llamada inicial para renderizar los productos
+renderProductos(productos);
 
-function addToCartButton (){
-    addButton = document.querySelectorAll(".productoAgregar")
+// Función para agregar productos al carrito utilizando la función desde carrito.js
+function addToCartButton() {
+    const addButton = document.querySelectorAll(".productoAgregar");
+
     addButton.forEach(button => {
-        button.onclick = (e) =>{
-            const productId = e.currentTarget.id
-            const selectedProduct = productos.find(producto => producto.id == productId)
-            cartProducts.push(selectedProduct)
-            console.log(cartProducts)
+        button.onclick = (e) => {
+            const productId = e.currentTarget.id;
+            const selectedProduct = productos.find(producto => producto.id == productId);
 
-            localStorage.setItem("cartProducts", JSON.stringify(cartProducts))
-        }
-    })
+            // Llamar a la función definida en carrito.js para agregar el producto
+            if (typeof addToCart === "function") {
+                addToCart(selectedProduct);
+            } else {
+                console.error("addToCart function not found.");
+            }
+        };
+    });
 }
